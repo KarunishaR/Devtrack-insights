@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skills - DevTrack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media=\'all\'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-logo"><span class="dot"></span>DevTrack</div>
+    <nav class="sidebar-nav">
+      <a class="sidebar-link" data-page="profile" href="#">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg></span>
+        Overview
+      </a>
+      <a class="sidebar-link" data-page="contributions" href="#">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="20" x2="6" y2="12"/><line x1="12" y1="20" x2="12" y2="6"/><line x1="18" y1="20" x2="18" y2="14"/></svg></span>
+        Contributions
+      </a>
+      <a class="sidebar-link" data-page="skills" href="#">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
+        Skills
+      </a>
+      <a class="sidebar-link" data-page="career" href="#">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></span>
+        Career
+      </a>
+      <a class="sidebar-link" data-page="repos" href="#">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"/></svg></span>
+        Repositories
+      </a>
+      <a class="sidebar-link" data-page="opensource" href="#">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>
+        Open Source
+      </a>
+    </nav>
+    <div class="sidebar-footer">
+      <button id="change-user-btn" class="btn btn-secondary btn-sm" style="width:100%; justify-content:center;">Change user</button>
+    </div>
+  </aside>
+
+  <div class="main-col">
+    <header class="topbar">
+      <div class="topbar-user">
+        <img id="topbar-avatar" class="topbar-avatar" src="" alt="">
+        <div>
+          <div id="topbar-name" class="topbar-name">Loading...</div>
+          <div id="topbar-username" class="topbar-username">@-</div>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-content" id="page-content">
+      <div class="page-header">
+        <div class="page-title">Skills</div>
+        <div class="page-sub">Detected from actual code volume across all languages in each repository - not just each repo's single primary language.</div>
+      </div>
+
+      <div id="skills-loading" class="loading-line">Loading skill data...</div>
+      <div id="skills-error" class="status-banner" hidden></div>
+
+      <div id="skills-content" hidden>
+        <div class="card">
+          <div class="card-head">
+            <span class="card-title">Language breakdown</span>
+            <span id="skills-repo-count" class="card-tag">0 repos analyzed</span>
+          </div>
+          <div id="primary-skills-label" class="skill-tier-label" hidden>Primary</div>
+          <div id="primary-skills-list"></div>
+          <div id="familiar-skills-label" class="skill-tier-label" hidden>Also used</div>
+          <div id="familiar-skills-list"></div>
+          <p id="skills-empty" class="card-empty" hidden>No language data detected from this profile's repositories yet.</p>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="js/common.js"></script>
+<script src="js/skills.js"></script>
+</body>
+</html>

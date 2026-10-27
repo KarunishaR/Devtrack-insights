@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Open Source - DevTrack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media=\'all\'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-logo"><span class="dot"></span>DevTrack</div>
+    <nav class="sidebar-nav">
+      <a class="sidebar-link" data-page="profile" href="#">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg></span>
+        Overview
+      </a>
+      <a class="sidebar-link" data-page="contributions" href="#">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="20" x2="6" y2="12"/><line x1="12" y1="20" x2="12" y2="6"/><line x1="18" y1="20" x2="18" y2="14"/></svg></span>
+        Contributions
+      </a>
+      <a class="sidebar-link" data-page="skills" href="#">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
+        Skills
+      </a>
+      <a class="sidebar-link" data-page="career" href="#">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></span>
+        Career
+      </a>
+      <a class="sidebar-link" data-page="repos" href="#">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"/></svg></span>
+        Repositories
+      </a>
+      <a class="sidebar-link" data-page="opensource" href="#">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>
+        Open Source
+      </a>
+    </nav>
+    <div class="sidebar-footer">
+      <button id="change-user-btn" class="btn btn-secondary btn-sm" style="width:100%; justify-content:center;">Change user</button>
+    </div>
+  </aside>
+
+  <div class="main-col">
+    <header class="topbar">
+      <div class="topbar-user">
+        <img id="topbar-avatar" class="topbar-avatar" src="" alt="">
+        <div>
+          <div id="topbar-name" class="topbar-name">Loading...</div>
+          <div id="topbar-username" class="topbar-username">@-</div>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-content" id="page-content">
+      <div class="page-header">
+        <div class="page-title">Open Source Contributions</div>
+        <div class="page-sub">Pull requests you have opened on other people's projects, with live status from GitHub - plus projects chosen for you.</div>
+      </div>
+
+      <div id="oss-error" class="status-banner" hidden></div>
+
+      <div id="oss-content">
+        <div class="oss-stat-row">
+          <div class="oss-stat">
+            <div id="oss-total-value" class="oss-stat-value">-</div>
+            <div class="oss-stat-label">Total pull requests</div>
+          </div>
+          <div class="oss-stat open">
+            <div id="oss-open-value" class="oss-stat-value">-</div>
+            <div class="oss-stat-label">Open</div>
+          </div>
+          <div class="oss-stat merged">
+            <div id="oss-merged-value" class="oss-stat-value">-</div>
+            <div class="oss-stat-label">Merged</div>
+          </div>
+          <div class="oss-stat closed">
+            <div id="oss-closed-value" class="oss-stat-value">-</div>
+            <div class="oss-stat-label">Closed (not merged)</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <span class="card-title">Your pull requests</span>
+          </div>
+          <div class="filter-tabs">
+            <button type="button" class="active" data-filter="ALL">All</button>
+            <button type="button" data-filter="OPEN">Open</button>
+            <button type="button" data-filter="MERGED">Merged</button>
+            <button type="button" data-filter="CLOSED">Closed</button>
+          </div>
+          <div id="pr-loading" class="loading-line">Loading pull requests...</div>
+          <div id="pr-list"></div>
+          <p id="pr-empty" class="card-empty" hidden>No pull requests found for this user yet.</p>
+        </div>
+
+        <div class="card" style="margin-top: 20px;">
+          <div class="card-head">
+            <span class="card-title">Where to contribute next</span>
+            <span id="oss-suggest-based-on" class="card-tag">-</span>
+          </div>
+          <div id="oss-suggest-loading" class="loading-line">Finding projects that match your skills and past contributions...</div>
+          <div id="oss-suggest-grid" class="grid-3"></div>
+          <p id="oss-suggest-empty" class="card-empty" hidden>No suggestions available right now.</p>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="js/common.js"></script>
+<script src="js/opensource.js"></script>
+</body>
+</html>

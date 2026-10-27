@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DevTrack - GitHub Contribution Insights</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media=\'all\'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="landing">
+  <nav class="landing-nav">
+    <div class="landing-logo"><span class="dot"></span>DevTrack</div>
+  </nav>
+
+  <section class="landing-hero">
+    <span class="landing-eyebrow">Open Source Contribution Analytics</span>
+    <h1 class="landing-title">Understand any developer's<br><span class="accent">GitHub story</span>, at a glance</h1>
+    <p class="landing-sub">Contribution activity, detected skills, and AI-backed career guidance - built for students preparing for internship and job applications.</p>
+
+    <form id="search-form" class="search-card">
+      <input
+        id="username-input"
+        type="text"
+        class="search-input"
+        placeholder="Enter a GitHub username"
+        aria-label="GitHub username"
+      />
+      <button type="submit" class="search-btn">Analyze</button>
+    </form>
+
+    <p id="search-error" class="landing-error" role="alert" hidden></p>
+    <div id="backend-status" class="landing-status" role="alert" hidden></div>
+
+    <div class="landing-examples">
+      <span>Try:</span>
+      <button type="button" class="example-chip" data-username="octocat">octocat</button>
+      <button type="button" class="example-chip" data-username="torvalds">torvalds</button>
+      <button type="button" class="example-chip" data-username="gaearon">gaearon</button>
+    </div>
+  </section>
+
+  <section class="landing-features">
+    <div class="feature-card">
+      <div class="feature-icon">&#9733;</div>
+      <div class="feature-title">Contribution insights</div>
+      <div class="feature-desc">A full year of activity, browsable by month, with real commit and PR-level detail on hover.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">&#9670;</div>
+      <div class="feature-title">Skill detection</div>
+      <div class="feature-desc">Automatically ranks languages and technologies from real repository activity, not a self-reported list.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">&#9650;</div>
+      <div class="feature-title">Career guidance</div>
+      <div class="feature-desc">AI-backed role suggestions and concrete next steps, grounded in what's actually on the profile.</div>
+    </div>
+  </section>
+</div>
+
+<script src="js/common.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
